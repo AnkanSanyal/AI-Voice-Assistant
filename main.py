@@ -7,7 +7,7 @@ import webbrowser as wb
 import os
 import pyautogui
 import psutil
-
+import pyjokes
 
 engine = pyttsx3.init()
 def speak(audio):
@@ -75,6 +75,8 @@ def cpu():
     battery=psutil.sensors_battery()
     speak("Battery is at")
     speak(battery.percent)
+def jokes():
+    speak(pyjokes.get_joke())
 
 if __name__=="__main__":
     wishme()
@@ -130,6 +132,8 @@ if __name__=="__main__":
             speak("Done!")
         elif "cpu" in query:
             cpu()
+        elif "joke" in query:
+            jokes()
         elif "offline" in query:
             quit()
 
